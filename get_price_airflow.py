@@ -36,14 +36,14 @@ def todayPrice():
 
 def insert_price(df):
     config = {
-        "endpoint": "https://jang.documents.azure.com:443/",
-        "primarykey": "xD4e14e4B9hHFCnqwuTqIz9CkKU3APSU5Wcj9KD0tsWaphFBwTYLY9Wr97ks0Q0PBcRfbaqUA9kreBKAMS81nQ=="
+        "endpoint": "",
+        "primarykey": ""
     }
     client = CosmosClient(config["endpoint"], config["primarykey"])
 
-    database_name = 'testDatabase'
+    database_name = 'MLStocking'
     database = client.get_database_client(database_name)
-    container_name = 'testContainer'
+    container_name = 'daily_price'
     container = database.get_container_client(container_name)
 
     # Get the number of items in daily_price container

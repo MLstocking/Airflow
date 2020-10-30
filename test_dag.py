@@ -22,17 +22,17 @@ dag = DAG(
     schedule_interval="@once")
 
 # Bash Operator
-cmd1 = 'python /home/admin_jang/DataCollector/get_price_airflow.py'
+cmd1 = 'python /home/admin_jang/Airflow/get_price_airflow.py'
 t1 = BashOperator(task_id='get_price',
                   bash_command=cmd1,
                   dag=dag)
 
-cmd2 = 'python /home/admin_jang/DataCollector/get_fs_airflow.py'
+cmd2 = 'python /home/admin_jang/Airflow/get_fs_airflow.py'
 t2 = BashOperator(task_id='get_fs',
                   bash_command=cmd2,
                   dag=dag)
 
-cmd3 = 'python /home/admin_jang/DataCollector/get_bond_airflow.py'
+cmd3 = 'python /home/admin_jang/Airflow/get_bond_airflow.py'
 t3 = BashOperator(task_id='get_bond',
                   bash_command=cmd3,
                   dag=dag)

@@ -10,7 +10,7 @@ from pytz import timezone
 # 여러 해의 분기별 보고서 concatenation
 def concat_years_report(code, opt, start, end):
     # DART API key 입력
-    api_key = "da5dc23cd819c72273c351adf870fb3e2329cade"
+    api_key = ""
     dart = OpenDartReader(api_key)
 
     start_year = int(start[:4]) - 1
@@ -29,7 +29,7 @@ def concat_years_report(code, opt, start, end):
 # 여러 해의 분기별 재무 정보 concatenation
 def concat_years_fs(code, start, end):
     # DART API key 입력
-    api_key = "da5dc23cd819c72273c351adf870fb3e2329cade"
+    api_key = ""
     dart = OpenDartReader(api_key)
 
     start_year = int(start[:4]) - 1
@@ -71,15 +71,15 @@ def rcept_no2date(val):
 def get_stockprice(code, start, end):
 
     config = {
-        "endpoint": "https://jang.documents.azure.com:443/",
-        "primarykey": "xD4e14e4B9hHFCnqwuTqIz9CkKU3APSU5Wcj9KD0tsWaphFBwTYLY9Wr97ks0Q0PBcRfbaqUA9kreBKAMS81nQ=="
+        "endpoint": "",
+        "primarykey": ""
     }
 
     client = CosmosClient(config["endpoint"], config["primarykey"])
 
-    database_name = 'testDatabase'
+    database_name = 'MLStocking'
     database = client.get_database_client(database_name)
-    container_name = 'testContainer'
+    container_name = 'financial_statement'
     container = database.get_container_client(container_name)
 
     # Query
@@ -116,15 +116,15 @@ def insert_fs(df):
         df[col] = df[col].astype(str)
 
     config = {
-        "endpoint": "https://jang.documents.azure.com:443/",
-        "primarykey": "xD4e14e4B9hHFCnqwuTqIz9CkKU3APSU5Wcj9KD0tsWaphFBwTYLY9Wr97ks0Q0PBcRfbaqUA9kreBKAMS81nQ=="
+        "endpoint": "",
+        "primarykey": ""
     }
 
     client = CosmosClient(config["endpoint"], config["primarykey"])
 
-    database_name = 'testDatabase'
+    database_name = 'MLStocking'
     database = client.get_database_client(database_name)
-    container_name = 'testContainer'
+    container_name = 'financial_statement'
     container = database.get_container_client(container_name)
 
     # Get the number of items in daily_price container

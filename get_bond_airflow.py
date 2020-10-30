@@ -25,20 +25,20 @@ def get_bond():
 def insert_bond(df):
 
     config = {
-        "endpoint": "https://jang.documents.azure.com:443/",
-        "primarykey": "xD4e14e4B9hHFCnqwuTqIz9CkKU3APSU5Wcj9KD0tsWaphFBwTYLY9Wr97ks0Q0PBcRfbaqUA9kreBKAMS81nQ=="
+        "endpoint": "",
+        "primarykey": ""
     }
 
     client = CosmosClient(config["endpoint"], config["primarykey"])
 
-    database_name = 'testDatabase'
+    database_name = 'MLStocking'
     database = client.get_database_client(database_name)
-    container_name = 'testContainer'
+    container_name = 'bond'
     container = database.get_container_client(container_name)
 
     # Get the number of items in daily_price container
     continued_items = container.query_items(
-        query='SELECT VALUE COUNT(1) FROM testContainer',
+        query='SELECT VALUE COUNT(1) FROM bond',
         enable_cross_partition_query=True)
 
     for item in continued_items:
