@@ -1,0 +1,5 @@
+azure-core==1.8.0
+azure-cosmos==4.1.0
+finance-datareader==0.9.6
+investpy==1.0
+OpenDartReader==0.0.8
